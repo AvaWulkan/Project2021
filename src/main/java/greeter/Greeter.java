@@ -1,5 +1,7 @@
 package greeter;
 
+        import com.google.common.base.CharMatcher;
+
         import java.time.LocalDateTime;
         import java.time.LocalTime;
 
@@ -22,7 +24,7 @@ public class Greeter {
         logToConsole();
 
         if (inputTime == null) {
-            return "Hello " + upperCaseName.trim();
+            return "Hello " + CharMatcher.WHITESPACE.trimFrom(upperCaseName);
         }
 
 
