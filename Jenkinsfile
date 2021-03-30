@@ -1,4 +1,9 @@
 pipeline {
+    environment {
+        registry = "avawulkan/projekt2021"
+        registryCredential = '1c029a9a-9527-480c-8648-50705faa5647'
+        dockerImage = 'Dockerfile'
+    }
     agent any
     tools {
         maven 'Maven 3.6.3'
@@ -18,10 +23,13 @@ pipeline {
             }
         }
 
-        stage('Push image') {
-            docker.withRegistry('https://registry.hub.docker.com') {
-                app.push("${env.BUILD_NUMBER}")
-                app.push("latest")
+        stage('Deploy our image') {
+            steps {
+                script {
+                    docker.withRegistry('', registryCredential) {
+                        dockerImage.push()
+                    }
+                }
             }
         }
     }
