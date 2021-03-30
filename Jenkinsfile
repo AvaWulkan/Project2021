@@ -26,7 +26,7 @@ pipeline {
         stage('Dockerbuild') {
             steps {
                 script {
-                    dockerImage = docker.build("avawulkan/projekt2021")
+                    dockerImage = docker.build('https://github.com/AvaWulkan/Project2021/blob/master/Dockerfile')
                 }
             }
         }
