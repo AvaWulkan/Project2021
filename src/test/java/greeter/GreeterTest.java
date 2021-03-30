@@ -44,10 +44,18 @@ class GreeterTest {
     }
 
     @Test
-    void timeIsBetween22and06(){
+    void timeIsBetween22and06() {
         Greeter greeter = new Greeter();
         greeter.setTime("01:00:00");
         var result = greeter.greet("Bob");
         Assertions.assertEquals("Good night " + "Bob", result);
+    }
+
+    @Test
+    void logsIntoConsole() {
+        Greeter greeter = new Greeter();
+        greeter.setTime("01:01:01");
+        var result = greeter.logToConsole();
+        Assertions.assertEquals("Logged", result);
     }
 }

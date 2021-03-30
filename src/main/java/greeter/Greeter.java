@@ -12,9 +12,14 @@ public class Greeter {
         inputTime = x;
     }
 
+    public String logToConsole() {
+        System.out.println(LocalDateTime.now() + "Function was called with inputTime: " + inputTime);
+        return "Logged";
+    }
+
     public String greet(String name) {
         String upperCaseName = name.substring(0, 1).toUpperCase() + name.substring(1);
-        System.out.println(LocalDateTime.now() + " - function greet was called with : " + name + " with inputTime "+ inputTime);
+        logToConsole();
 
         if (inputTime == null) {
             return "Hello " + upperCaseName.trim();
