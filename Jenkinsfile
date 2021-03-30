@@ -2,7 +2,7 @@ pipeline {
     environment {
         registry = "avawulkan/projekt2021"
         registryCredential = '1c029a9a-9527-480c-8648-50705faa5647'
-        //dockerImage = ''
+        dockerImage = ''
     }
     agent any
     tools {
@@ -23,8 +23,10 @@ pipeline {
             }
         }
 
-        stage('Dockerbuild'){
-            dockerImage = docker.build("avawulkan/projekt2021")
+        stage('Dockerbuild') {
+            steps {
+                dockerImage = docker.build("avawulkan/projekt2021")
+            }
         }
 
         stage('Deploy our image') {
