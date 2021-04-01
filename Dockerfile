@@ -5,8 +5,9 @@
 
 # Step : Testar classes istället
 FROM adoptopenjdk:11-jre
+COPY target/libs /libs
 COPY target/classes /classes
-ENTRYPOINT ['java', '-cp', '/classes', 'greeter.Main' ]
+ENTRYPOINT ["java", "-cp", "/classes", "greeter.Main" ]
 
 # Step : Test and package
 # FROM maven:3.6.3
