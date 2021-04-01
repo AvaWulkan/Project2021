@@ -15,7 +15,7 @@ pipeline {
                 echo 'Starting to build Greeter'
                 sh 'java --version'
                 sh 'mvn clean compile'
-            }{}
+            }
         }
         stage('Test') {
             steps {
