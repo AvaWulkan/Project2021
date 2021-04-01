@@ -22,7 +22,11 @@ pipeline {
                 sh 'mvn test'
             }
         }
-
+        stage('Package'){
+            steps{
+                sh 'mvn package'
+            }
+        }
         stage('Dockerbuild') {
             steps {
                 script {
@@ -30,7 +34,6 @@ pipeline {
                 }
             }
         }
-
         stage('Deploy our image') {
             steps {
                 script {
