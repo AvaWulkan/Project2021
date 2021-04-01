@@ -5,14 +5,15 @@
 
 # Step : Testar classes istället
 FROM adoptopenjdk:11-jre
-COPY target/classes .
+COPY target/classes /classes
+ENTRYPOINT ['java', '-cp', '/classes', 'greeter.Main' ]
 
 # Step : Test and package
-FROM maven:3.6.3
-WORKDIR /build
-COPY pom.xml .
-RUN mvn dependency:go-offline
+# FROM maven:3.6.3
+# WORKDIR /build
+# COPY pom.xml .
+# RUN mvn dependency:go-offline
 
-COPY src/ /build/src/
-RUN mvn package
+# COPY src/ /build/src/
+# RUN mvn package
 
