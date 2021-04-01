@@ -22,11 +22,11 @@ pipeline {
                 sh 'mvn test'
             }
         }
-        stage('Package'){
+    /*    stage('Package'){
             steps{
                 sh 'mvn package'
             }
-        }
+        } */
         stage('Dockerbuild') {
             steps {
                 script {
